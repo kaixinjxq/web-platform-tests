@@ -44,6 +44,6 @@ async_test(t => {
     assert_equals(frame2.contentDocument.URL.split("?")[1], 'foo=&submit=true');
   });
   form2.submit.click();
-}, 'The button cannot be setted if it is not a submitter.');
+}, 'The button cannot be submitted if it is not a submitter.');
 
 </script>
