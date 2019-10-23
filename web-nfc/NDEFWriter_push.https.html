@@ -182,6 +182,12 @@ nfc_test(async (t, mockNFC) => {
   await promise_rejects(t, 'NotSupportedError', writer.push(test_text_data));
 }, "NDEFWriter.push should fail when NFC HW is not supported.");
 
+nfc_test(async (t, mockNFC) => {
+  const writer = new NFCWriter();
+  mockNFC.setNonNDEFTag();
+  await promise_rejects(t, 'NotSupportedError', writer.push(test_text_data));
+}, "NFCWriter.push should fail when NFC HW does not expose NDEF technology");
+
 promise_test(async t => {
   const writer = new NDEFWriter();
   await promise_rejects(

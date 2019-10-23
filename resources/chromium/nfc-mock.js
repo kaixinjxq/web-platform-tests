@@ -344,6 +344,10 @@ var WebNFCTest = (() => {
       this.operations_suspended_ = true;
     }
 
+    setNonNDEFTag() {
+      this.setHWStatus(NFCHWStatus.NOT_SUPPORTED);
+    }
+
     // Resumes all suspended NFC operations.
     resumeNFCOperations() {
       this.operations_suspended_ = false;
