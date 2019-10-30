@@ -17,7 +17,7 @@ const NDEFReaderOptionTests =
             " recordType is set to 'empty'.",
       scanOptions: {recordType: "empty"},
       unmatchedScanOptions: {recordType: "json"},
-      message: createMessage([createRecord('empty', '')])
+      message: createMessage([createRecord('empty')])
     },
     {
       desc: "Test that reading data succeed when NDEFScanOptions'" +
@@ -52,7 +52,7 @@ const NDEFReaderOptionTests =
             " recordType is set to a custom type for external type records.",
       scanOptions: {recordType: "w3.org:xyz"},
       unmatchedScanOptions: {recordType: "opaque"},
-      message: createMessage([createRecord('w3.org:xyz', 'application/octet-stream',
+      message: createMessage([createRecord('w3.org:xyz', undefined,
             test_buffer_data)])
     },
     {
@@ -78,7 +78,7 @@ const ReadMultiMessagesTests =
       desc: "Test that filtering 'empty' record from different messages" +
             " correctly with NDEFScanOptions' recordType is set to 'empty'.",
       scanOptions: {recordType: "empty"},
-      message: createMessage([createRecord('empty', '')]),
+      message: createMessage([createRecord('empty')]),
       unmatchedMessage: createMessage([createJsonRecord(test_json_data)]),
     },
     {
@@ -113,7 +113,7 @@ const ReadMultiMessagesTests =
       desc: "Test that filtering external record from different messages" +
             " correctly with NDEFScanOptions' recordType is set to the custom type.",
       scanOptions: {recordType: "w3.org:xyz"},
-      message: createMessage([createRecord('w3.org:xyz', 'application/octet-stream',
+      message: createMessage([createRecord('w3.org:xyz', undefined,
             test_buffer_data)]),
       unmatchedMessage: createMessage([createTextRecord(test_text_data)])
     },

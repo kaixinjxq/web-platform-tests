@@ -100,8 +100,7 @@ function createRecord(recordType, mediaType, data, encoding, lang) {
 }
 
 function createTextRecord(data, encoding, lang) {
-  return createRecord('text', 'text/plain', data, encoding, lang);
-}
+  return createRecord('text', undefined, data, encoding, lang);
 
 function createJsonRecord(json) {
   return createRecord('json', 'application/json', json);
@@ -112,7 +111,7 @@ function createOpaqueRecord(buffer) {
 }
 
 function createUrlRecord(url) {
-  return createRecord('url', 'text/plain', url);
+  return createRecord('url', undefined, url);
 }
 
 function createNDEFPushOptions(target, timeout, ignoreRead) {
